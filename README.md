@@ -1,4 +1,4 @@
-﻿# RadioML 2018 O'Shea Paper Reproduction
+# RadioML 2018 O'Shea Paper Reproduction
 
 This repository contains a PyTorch reproduction of the ResNet-based automatic modulation classification experiment from:
 
@@ -22,18 +22,20 @@ I built this as the first implementation task during my IIT Indore internship. T
 
 ```text
 .
-â”œâ”€â”€ notebooks/
-â”‚   â””â”€â”€ oshea_radioml_reproduction.ipynb
-â”œâ”€â”€ figures/
-â”‚   â”œâ”€â”€ accuracy_vs_snr.png
-â”‚   â”œâ”€â”€ confusion_matrix.png
-â”‚   â”œâ”€â”€ constellation_diagrams.png
-â”‚   â””â”€â”€ polar_vs_cartesian.png
-â”œâ”€â”€ data/
-â”‚   â””â”€â”€ README.md
-â”œâ”€â”€ requirements.txt
-â”œâ”€â”€ .gitignore
-â””â”€â”€ README.md
+|-- notebooks/
+|   `-- oshea_radioml_reproduction.ipynb
+|-- figures/
+|   |-- accuracy_vs_snr.png
+|   |-- confusion_matrix.png
+|   |-- constellation_diagrams.png
+|   `-- polar_vs_cartesian.png
+|-- data/
+|   `-- README.md
+|-- .gitattributes
+|-- .gitignore
+|-- README.md
+|-- REFERENCES.md
+`-- requirements.txt
 ```
 
 ## Dataset
