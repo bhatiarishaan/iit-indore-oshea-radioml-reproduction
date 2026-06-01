@@ -1,22 +1,33 @@
-# RadioML 2018 O'Shea Paper Reproduction
+﻿# RadioML 2018 O'Shea Reproduction with Polar Feature Extension
 
-This repository contains a PyTorch reproduction of the ResNet-based automatic modulation classification experiment from:
+This repository contains a PyTorch reproduction and extension of the ResNet-based automatic modulation classification experiment from:
 
 **T. J. O'Shea, T. Roy, and T. C. Clancy, "Over-the-Air Deep Learning Based Radio Signal Classification," IEEE Journal of Selected Topics in Signal Processing, 2018.**
 
 Paper DOI: [10.1109/JSTSP.2018.2797022](https://doi.org/10.1109/JSTSP.2018.2797022)
 
-I built this as the first implementation task during my IIT Indore internship. The goal was to understand how raw I/Q radio samples can be classified directly with deep learning, reproduce the paper's key RadioML-style results, and explore the paper's open question about Cartesian I/Q versus polar amplitude/phase representations.
+I built this as the first implementation task during my IIT Indore internship. The first goal was to reproduce the paper's raw I/Q ResNet pipeline on the RadioML 2018-style dataset. After that, I extended the experiment by testing a polar amplitude/phase input representation, which the paper identifies as an interesting direction for further study.
+
+## What I Added Beyond Reproduction
+
+The O'Shea paper primarily uses Cartesian I/Q samples as the neural network input. In the discussion, the authors note that the choice of input representation may affect classification performance and mention polar representation as a possible direction to explore.
+
+This repository includes a direct controlled comparison between:
+
+- Cartesian I/Q input: `(I, Q)`
+- Polar input: `(amplitude, phase)`
+
+Both models use the same ResNet architecture, the same balanced dataset subset, the same train/test split, and the same training schedule. This makes the comparison focused on the input representation rather than changes in model design or data selection.
 
 ## What Is Included
 
-- A cleaned Jupyter notebook reproduction of the O'Shea ResNet workflow.
+- Reproduction of the O'Shea ResNet workflow for raw I/Q modulation classification.
 - Balanced loading of the 24-class RadioML difficult modulation set.
-- ResNet-style 1D convolutional classifier for raw I/Q samples.
-- Accuracy versus SNR evaluation.
+- Accuracy versus SNR evaluation for the Cartesian I/Q baseline.
 - High-SNR confusion matrix analysis.
 - Constellation visualizations for all modulation classes.
-- A polar representation experiment using amplitude and phase features.
+- A polar amplitude/phase experiment motivated by the paper's future-work discussion.
+- A final Cartesian versus polar comparison plot.
 
 ## Repository Layout
 
@@ -62,7 +73,9 @@ Using a reduced balanced subset of the dataset:
 
 The reproduced Cartesian I/Q ResNet reached about **66.9% average accuracy at SNR >= 10 dB**.
 
-The polar amplitude/phase experiment reached about **78.2% average accuracy at SNR >= 10 dB** in this run. This is an exploratory result and should be validated with more random seeds and larger training subsets before making a strong claim.
+The polar amplitude/phase model reached about **78.2% average accuracy at SNR >= 10 dB** in this run.
+
+This result suggests that polar representation can be a useful feature transformation for this reduced-data RadioML setting. I treat it as an experimental finding rather than a final claim, because a stronger conclusion would require more random seeds, larger training subsets, and closer matching to the full training scale used in the paper.
 
 ## How To Run
 
@@ -88,4 +101,4 @@ Run the notebook from the repository root so that the relative `data/` and `figu
 
 ## Notes
 
-This is a reproduction and learning implementation, not a bit-for-bit clone of the paper. The model is smaller than the paper's reported ResNet parameter count and uses a reduced training subset instead of the full million-scale setup. The reproduced trends, confusion patterns, and SNR behavior are the important comparison points.
+This is a reproduction and extension project, not a bit-for-bit clone of the paper. The ResNet used here is smaller than the parameter count reported in the paper, and the experiment uses a reduced balanced subset instead of the full million-scale setup. The main value of the project is the end-to-end reproduction workflow, the SNR and confusion analysis, and the added polar-coordinate comparison inspired by the paper's discussion.
