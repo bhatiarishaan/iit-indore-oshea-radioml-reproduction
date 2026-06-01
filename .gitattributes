@@ -1,0 +1,7 @@
+﻿*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+*.ipynb text eol=lf
+*.png binary
+*.hdf5 binary
+*.h5 binary

@@ -1,0 +1,7 @@
+numpy
+h5py
+torch
+matplotlib
+scikit-learn
+seaborn
+jupyter

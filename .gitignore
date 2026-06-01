@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+Lib/
+Scripts/
+share/
+
+# Large datasets and model artifacts
+data/*.hdf5
+data/*.h5
+*.pt
+*.pth
+*.ckpt
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
